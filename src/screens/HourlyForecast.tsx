@@ -2,31 +2,35 @@ import React from 'react';
 import {StyleSheet, View, Text, Button} from 'react-native';
 import {CompositeNavigationProp} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
-import {SettingsTabsParamList} from '../navigators/SettingsTabs';
+import {MainStackParamList} from '../navigators/MainStack';
 import {MaterialBottomTabNavigationProp} from '@react-navigation/material-bottom-tabs';
+import {HomeTabsParamList} from 'src/navigators/HomeTabs';
 import {DrawerNavigationProp} from '@react-navigation/drawer';
 import {MainDrawerParamList} from 'src/navigators/MainDrawer';
 import {RootStackParamList} from 'src/navigators/RootStack';
 // import {SafeAreaView} from 'react-native-safe-area-context';
 
-type GeneralSettingsScreenNavigationProp = CompositeNavigationProp<
-  MaterialBottomTabNavigationProp<SettingsTabsParamList, 'GeneralSettings'>,
+type HourlyForecastScreenNavigationProp = CompositeNavigationProp<
+  MaterialBottomTabNavigationProp<HomeTabsParamList, 'HourlyForecast'>,
   CompositeNavigationProp<
-    DrawerNavigationProp<MainDrawerParamList>,
-    StackNavigationProp<RootStackParamList>
+    StackNavigationProp<MainStackParamList>,
+    CompositeNavigationProp<
+      DrawerNavigationProp<MainDrawerParamList>,
+      StackNavigationProp<RootStackParamList>
+    >
   >
 >;
 type Props = {
-  navigation: GeneralSettingsScreenNavigationProp;
+  navigation: HourlyForecastScreenNavigationProp;
 };
 
-const GeneralSettings = ({navigation}: Props) => {
+const HourlyForecast = ({navigation}: Props) => {
   return (
     <View style={styles.container}>
-      <Text>{`Welcome to Settings!`}</Text>
+      <Text>{`Welcome to HourlyForecast!`}</Text>
       <Button
-        onPress={() => navigation.navigate('AppearanceSettings')}
-        title="Go to Appearance Settings"
+        onPress={() => navigation.navigate('SettingsTabs')}
+        title="Go to General Settings"
       />
     </View>
   );
@@ -40,4 +44,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default GeneralSettings;
+export default HourlyForecast;

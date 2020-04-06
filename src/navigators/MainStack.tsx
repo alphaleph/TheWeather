@@ -1,24 +1,19 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
-import Home from '../screens/Home';
-import Profile from '../screens/Profile';
-import {RootStackParamList} from 'App';
+import HomeTabs, {HomeTabsParamList} from './HomeTabs';
+import LocationsStack, {LocationsStackParamList} from './LocationsStack';
 
 export type MainStackParamList = {
-  Home: undefined;
-  Profile: {
-    username: string;
-  };
-  GeneralSettings: undefined;
-  AppearanceSettings: undefined;
-} & RootStackParamList;
+  HomeTabs: HomeTabsParamList;
+  LocationsStack: LocationsStackParamList;
+};
 
 const Stack = createStackNavigator<MainStackParamList>();
 
 const MainStack = () => {
   return (
     <Stack.Navigator
-      initialRouteName="Home"
+      initialRouteName="HomeTabs"
       screenOptions={{
         headerStyle: {
           backgroundColor: '#5FDD9D',
@@ -28,16 +23,8 @@ const MainStack = () => {
           fontWeight: 'bold',
         },
       }}>
-      <Stack.Screen
-        name="Home"
-        component={Home}
-        options={{title: 'Home Screen'}}
-      />
-      <Stack.Screen
-        name="Profile"
-        component={Profile}
-        options={{title: 'Profile Screen'}}
-      />
+      <Stack.Screen name="HomeTabs" component={HomeTabs} />
+      <Stack.Screen name="LocationsStack" component={LocationsStack} />
     </Stack.Navigator>
   );
 };

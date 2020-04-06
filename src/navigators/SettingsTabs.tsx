@@ -4,7 +4,12 @@ import GeneralSettings from '../screens/GeneralSettings';
 import AppearanceSettings from '../screens/AppearanceSettings';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
-const BottomTabs = createMaterialBottomTabNavigator();
+export type SettingsTabsParamList = {
+  GeneralSettings: undefined;
+  AppearanceSettings: undefined;
+};
+
+const BottomTabs = createMaterialBottomTabNavigator<SettingsTabsParamList>();
 
 const SettingsTabs = () => {
   return (

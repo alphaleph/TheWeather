@@ -2,10 +2,11 @@ import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {useNavigation} from '@react-navigation/native';
-import {DrawerStackProp} from '../navigators/MainDrawer';
+import {MainDrawerParamList} from '../navigators/MainDrawer';
+import {DrawerNavigationProp} from '@react-navigation/drawer';
 
 const DrawerButton = () => {
-  const navigation = useNavigation<DrawerStackProp>();
+  const navigation = useNavigation<DrawerNavigationProp<MainDrawerParamList>>();
 
   return (
     <View style={styles.container}>

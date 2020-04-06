@@ -2,31 +2,34 @@ import React from 'react';
 import {StyleSheet, View, Text, Button} from 'react-native';
 import {CompositeNavigationProp} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
-import {SettingsTabsParamList} from '../navigators/SettingsTabs';
-import {MaterialBottomTabNavigationProp} from '@react-navigation/material-bottom-tabs';
+import {LocationsStackParamList} from '../navigators/LocationsStack';
+import {MainStackParamList} from 'src/navigators/MainStack';
 import {DrawerNavigationProp} from '@react-navigation/drawer';
 import {MainDrawerParamList} from 'src/navigators/MainDrawer';
 import {RootStackParamList} from 'src/navigators/RootStack';
 // import {SafeAreaView} from 'react-native-safe-area-context';
 
-type GeneralSettingsScreenNavigationProp = CompositeNavigationProp<
-  MaterialBottomTabNavigationProp<SettingsTabsParamList, 'GeneralSettings'>,
+type MyLocationsScreenNavigationProp = CompositeNavigationProp<
+  StackNavigationProp<LocationsStackParamList, 'MyLocations'>,
   CompositeNavigationProp<
-    DrawerNavigationProp<MainDrawerParamList>,
-    StackNavigationProp<RootStackParamList>
+    StackNavigationProp<MainStackParamList>,
+    CompositeNavigationProp<
+      DrawerNavigationProp<MainDrawerParamList>,
+      StackNavigationProp<RootStackParamList>
+    >
   >
 >;
 type Props = {
-  navigation: GeneralSettingsScreenNavigationProp;
+  navigation: MyLocationsScreenNavigationProp;
 };
 
-const GeneralSettings = ({navigation}: Props) => {
+const MyLocations = ({navigation}: Props) => {
   return (
     <View style={styles.container}>
-      <Text>{`Welcome to Settings!`}</Text>
+      <Text>{`Welcome to My Locations!`}</Text>
       <Button
-        onPress={() => navigation.navigate('AppearanceSettings')}
-        title="Go to Appearance Settings"
+        onPress={() => navigation.navigate('SettingsTabs')}
+        title="Go to General Settings"
       />
     </View>
   );
@@ -40,4 +43,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default GeneralSettings;
+export default MyLocations;
