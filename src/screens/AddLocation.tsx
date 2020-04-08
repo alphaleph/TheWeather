@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, View, Text, Button} from 'react-native';
+import {StyleSheet, View, Text} from 'react-native';
 import {CompositeNavigationProp} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {LocationsStackParamList} from '../navigators/LocationsStack';
@@ -23,14 +23,10 @@ type Props = {
   navigation: AddLocationScreenNavigationProp;
 };
 
-const AddLocation = ({navigation}: Props) => {
+const AddLocation = () => {
   return (
     <View style={styles.container}>
       <Text>{`Welcome to Add Location!`}</Text>
-      <Button
-        onPress={() => navigation.navigate('SettingsTabs')}
-        title="Go to General Settings"
-      />
     </View>
   );
 };

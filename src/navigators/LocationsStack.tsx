@@ -3,6 +3,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import MyLocations from '../screens/MyLocations';
 import AddLocation from '../screens/AddLocation';
 import EditLocation from '../screens/EditLocation';
+import DrawerButton from '../components/DrawerButton';
 
 export type LocationsStackParamList = {
   MyLocations: undefined;
@@ -30,7 +31,12 @@ const LocationsStack = () => {
       <Stack.Screen
         name="MyLocations"
         component={MyLocations}
-        options={{title: 'My Locations'}}
+        options={{
+          title: 'My Locations',
+          headerLeft: () => {
+            return <DrawerButton />;
+          },
+        }}
       />
       <Stack.Screen
         name="AddLocation"

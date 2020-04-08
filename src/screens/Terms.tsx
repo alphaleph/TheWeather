@@ -1,28 +1,28 @@
 import React from 'react';
-import {StyleSheet, View, Text, Button} from 'react-native';
+import {StyleSheet, View, Text} from 'react-native';
 import {CompositeNavigationProp} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {DrawerNavigationProp} from '@react-navigation/drawer';
 import {MainDrawerParamList} from 'src/navigators/MainDrawer';
+import {TermsStackParamList} from 'src/navigators/TermsStack';
 import {RootStackParamList} from 'src/navigators/RootStack';
 // import {SafeAreaView} from 'react-native-safe-area-context';
 
 type TermsScreenNavigationProp = CompositeNavigationProp<
-  DrawerNavigationProp<MainDrawerParamList, 'Terms'>,
-  StackNavigationProp<RootStackParamList>
+  StackNavigationProp<TermsStackParamList, 'Terms'>,
+  CompositeNavigationProp<
+    DrawerNavigationProp<MainDrawerParamList>,
+    StackNavigationProp<RootStackParamList>
+  >
 >;
 type Props = {
   navigation: TermsScreenNavigationProp;
 };
 
-const Terms = ({navigation}: Props) => {
+const Terms = () => {
   return (
     <View style={styles.container}>
       <Text>{`Welcome to Terms!`}</Text>
-      <Button
-        onPress={() => navigation.navigate('SettingsTabs')}
-        title="Go to General Settings"
-      />
     </View>
   );
 };

@@ -28,8 +28,12 @@ const MyLocations = ({navigation}: Props) => {
     <View style={styles.container}>
       <Text>{`Welcome to My Locations!`}</Text>
       <Button
-        onPress={() => navigation.navigate('SettingsTabs')}
-        title="Go to General Settings"
+        onPress={() => navigation.navigate('AddLocation')}
+        title="Go to AddLocation"
+      />
+      <Button
+        onPress={() => navigation.navigate('EditLocation', {locationId: 1})}
+        title="Go to EditLocation"
       />
     </View>
   );

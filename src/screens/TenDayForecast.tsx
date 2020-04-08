@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, View, Text, Button} from 'react-native';
+import {StyleSheet, View, Text} from 'react-native';
 import {CompositeNavigationProp} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {MainStackParamList} from '../navigators/MainStack';
@@ -24,14 +24,10 @@ type Props = {
   navigation: TenDayForecastScreenNavigationProp;
 };
 
-const TenDayForecast = ({navigation}: Props) => {
+const TenDayForecast = () => {
   return (
     <View style={styles.container}>
       <Text>{`Welcome to TenDayForecast!`}</Text>
-      <Button
-        onPress={() => navigation.navigate('SettingsTabs')}
-        title="Go to General Settings"
-      />
     </View>
   );
 };

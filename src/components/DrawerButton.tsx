@@ -1,30 +1,30 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
-import {TouchableOpacity} from 'react-native-gesture-handler';
+import {BorderlessButton} from 'react-native-gesture-handler';
 import {useNavigation} from '@react-navigation/native';
 import {MainDrawerParamList} from '../navigators/MainDrawer';
-import {DrawerNavigationProp} from '@react-navigation/drawer';
+import {DrawerNavigationProp, useIsDrawerOpen} from '@react-navigation/drawer';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import {View} from 'react-native';
 
 const DrawerButton = () => {
   const navigation = useNavigation<DrawerNavigationProp<MainDrawerParamList>>();
+  const isDrawerOpen = useIsDrawerOpen();
 
   return (
-    <View style={styles.container}>
-      <TouchableOpacity onPress={() => navigation.openDrawer()}>
-        <Text style={styles.buttonText}>Toggle Drawer</Text>
-      </TouchableOpacity>
-    </View>
+    <BorderlessButton onPress={() => navigation.toggleDrawer()}>
+      <View
+        accessible
+        accessibilityLabel={
+          isDrawerOpen ? 'Close Drawer Menu' : 'Open Drawer Menu'
+        }>
+        {isDrawerOpen ? (
+          <Icon name={'backburger'} size={26} />
+        ) : (
+          <Icon name={'menu'} size={26} />
+        )}
+      </View>
+    </BorderlessButton>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flexDirection: 'row',
-  },
-  buttonText: {
-    color: '#432321',
-    fontSize: 14,
-  },
-});
 
 export default DrawerButton;

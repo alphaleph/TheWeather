@@ -1,28 +1,28 @@
 import React from 'react';
-import {StyleSheet, View, Text, Button} from 'react-native';
+import {StyleSheet, View, Text} from 'react-native';
 import {CompositeNavigationProp} from '@react-navigation/native';
 import {DrawerNavigationProp} from '@react-navigation/drawer';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {MainDrawerParamList} from 'src/navigators/MainDrawer';
+import {AboutStackParamList} from 'src/navigators/AboutStack';
 import {RootStackParamList} from 'src/navigators/RootStack';
 // import {SafeAreaView} from 'react-native-safe-area-context';
 
 type AboutScreenNavigationProp = CompositeNavigationProp<
-  DrawerNavigationProp<MainDrawerParamList, 'About'>,
-  StackNavigationProp<RootStackParamList>
+  StackNavigationProp<AboutStackParamList, 'About'>,
+  CompositeNavigationProp<
+    DrawerNavigationProp<MainDrawerParamList>,
+    StackNavigationProp<RootStackParamList>
+  >
 >;
 type Props = {
   navigation: AboutScreenNavigationProp;
 };
 
-const About = ({navigation}: Props) => {
+const About = () => {
   return (
     <View style={styles.container}>
       <Text>{`Welcome to About!`}</Text>
-      <Button
-        onPress={() => navigation.navigate('SettingsTabs')}
-        title="Go to General Settings"
-      />
     </View>
   );
 };

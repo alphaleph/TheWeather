@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, View, Text, Button} from 'react-native';
+import {StyleSheet, View, Text} from 'react-native';
 import {CompositeNavigationProp} from '@react-navigation/native';
 import {MaterialBottomTabNavigationProp} from '@react-navigation/material-bottom-tabs';
 import {StackNavigationProp} from '@react-navigation/stack';
@@ -24,14 +24,10 @@ type Props = {
   navigation: NowForecastScreenNavigationProp;
 };
 
-const NowForecast = ({navigation}: Props) => {
+const NowForecast = () => {
   return (
     <View style={styles.container}>
       <Text>{`Welcome to NowForecast!`}</Text>
-      <Button
-        onPress={() => navigation.navigate('SettingsTabs')}
-        title="Go to General Settings"
-      />
     </View>
   );
 };

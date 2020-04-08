@@ -12,7 +12,7 @@ const Stack = createStackNavigator<RootStackParamList>();
 
 const RootStack = () => {
   return (
-    <Stack.Navigator mode="modal">
+    <Stack.Navigator>
       <Stack.Screen
         name="MainDrawer"
         component={MainDrawer}

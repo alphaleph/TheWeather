@@ -1,28 +1,28 @@
 import React from 'react';
-import {StyleSheet, View, Text, Button} from 'react-native';
+import {StyleSheet, View, Text} from 'react-native';
 import {CompositeNavigationProp} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {DrawerNavigationProp} from '@react-navigation/drawer';
 import {MainDrawerParamList} from 'src/navigators/MainDrawer';
+import {PrivacyStackParamList} from 'src/navigators/PrivacyStack';
 import {RootStackParamList} from 'src/navigators/RootStack';
 // import {SafeAreaView} from 'react-native-safe-area-context';
 
 type PrivacyScreenNavigationProp = CompositeNavigationProp<
-  DrawerNavigationProp<MainDrawerParamList, 'Privacy'>,
-  StackNavigationProp<RootStackParamList>
+  StackNavigationProp<PrivacyStackParamList, 'Privacy'>,
+  CompositeNavigationProp<
+    DrawerNavigationProp<MainDrawerParamList>,
+    StackNavigationProp<RootStackParamList>
+  >
 >;
 type Props = {
   navigation: PrivacyScreenNavigationProp;
 };
 
-const Privacy = ({navigation}: Props) => {
+const Privacy = () => {
   return (
     <View style={styles.container}>
       <Text>{`Welcome to Privacy!`}</Text>
-      <Button
-        onPress={() => navigation.navigate('SettingsTabs')}
-        title="Go to General Settings"
-      />
     </View>
   );
 };

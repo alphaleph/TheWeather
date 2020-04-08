@@ -13,7 +13,10 @@ const BottomTabs = createMaterialBottomTabNavigator<SettingsTabsParamList>();
 
 const SettingsTabs = () => {
   return (
-    <BottomTabs.Navigator initialRouteName="GeneralSettings" shifting={true}>
+    <BottomTabs.Navigator
+      initialRouteName="GeneralSettings"
+      shifting={true}
+      backBehavior={'none'}>
       <BottomTabs.Screen
         name="GeneralSettings"
         component={GeneralSettings}

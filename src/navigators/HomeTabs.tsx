@@ -15,7 +15,10 @@ const BottomTabs = createMaterialBottomTabNavigator<HomeTabsParamList>();
 
 const HomeTabs = () => {
   return (
-    <BottomTabs.Navigator initialRouteName="NowForecast" shifting={true}>
+    <BottomTabs.Navigator
+      initialRouteName="NowForecast"
+      backBehavior={'none'}
+      shifting={true}>
       <BottomTabs.Screen
         name="NowForecast"
         component={NowForecast}

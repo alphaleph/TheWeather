@@ -5,6 +5,8 @@ import Store from './src/redux/Store';
 import {NavigationContainer} from '@react-navigation/native';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import RootStack from './src/navigators/RootStack';
+// import Config from 'react-native-config';
+// <Text>{Config.API_URL}</Text>
 
 // declare var global: {HermesInternal: null | {}};
 
